@@ -1,0 +1,6 @@
+{
+    "path_to_current_config_folder" :"C:\\code\\DA\\Defect_analyzer_back\\project_data\\config\\current_config",
+    "path_to_current_config_json" : "C:\\code\\DA\\Defect_analyzer_back\\project_data\\config\\current_config\\config.json",
+    "path_to_default_config_json" : "C:\\code\\DA\\Defect_analyzer_back\\resources\\defaults\\config.json"
+
+}

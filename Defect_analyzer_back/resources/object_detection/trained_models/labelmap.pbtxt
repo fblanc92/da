@@ -1,0 +1,29 @@
+item {
+    id: 1
+    name: 'col'
+}
+item {
+    id: 2
+    name: 'ds0'
+}
+item {
+    id: 3
+    name: 'dsl'
+}
+item {
+    id: 4
+    name: 'ds2'
+}
+item {
+    id: 5
+    name: 'ds3'
+}
+item {
+    id: 6
+    name: 'overlap'
+}
+item {
+    id: 7
+    name: 'sol_ok'
+}
+

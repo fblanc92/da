@@ -1,0 +1,91 @@
+{% extends "layout.html" %}
+{% block content %}
+  <article class="media content-section shadow-lg p-3 mb-5 bg-white rounded">
+    <img class="rounded-circle article-img" src="{{ url_for('static',filename='profile_pics/' + 'trl_logo.jpg') }}">
+    <div class="media-body">
+      <div class="article-metadata">
+        <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d %H:%M:%S') }}</small>
+
+      </div>
+      <h2 class="article-title">{{ post.coil_id }}</h2>
+      <p class="article-content">{{ post.areas }}</p>
+
+
+
+    <div class="container">
+      <div class="row">
+        <div class="col-xs-11 col-sm-12 col-md-12 col-lg-10" id="canvas_holder">
+          <canvas id="canvas" height="20px" width="50px"></canvas>
+
+        </div>
+      </div>
+        <div class="container">
+          <p>
+          </p>
+        </div>
+    </div><!-- /.container -->
+
+    </div>
+  </article>
+  <!-- Modal -->
+  <div class="modal fade" id="deleteModal" tabindex="-1" role="dialog" aria-labelledby="deleteModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="deleteModalLabel">Delete Post?</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <form method="POST" action=" url_for('posts.delete_post', post_id=post.id) ">
+            <input class="btn btn-danger"type="submit" name="" value="Delete">
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+ <!-- Bootstrap core JavaScript
+    ================================================== -->
+    <!-- Placed at the end of the document so the pages load faster -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+    <script src="static/js/bootstrap.min.js"></script>
+    <script src="static/js/chart/Chart.min.js"></script>
+    <script type="text/javascript">
+
+    // This is the speed in which the loop occurs
+    loopSpeed = 5000
+    // Every loopSpeed milliseconds, get API data (randomized with Python)
+    // Then draw a bar graph with the data.
+
+
+      $.get( "/data", function( data ) { drawChart(data.set) });
+
+    function drawChart(set) {
+
+      var data = {
+          //labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+          labels: {{categories|tojson}},
+          datasets: [
+              {
+                  label: "Defects Areas",
+                  fillColor: "rgba(255,77,0,0.5)",
+                  strokeColor: "rgba(220,220,220,0.8)",
+                  highlightFill: "rgba(220,10,10,0.75)",
+                  highlightStroke: "rgba(220,0,0,1)",
+                  data: {{areas|tojson}}
+              }
+          ]
+      };
+
+      var ctx = document.getElementById("canvas").getContext("2d");
+
+      new Chart(ctx).Bar(data, {
+          responsive : true
+      });
+
+    }
+
+    </script>
+{% endblock content %}

@@ -1,0 +1,29 @@
+{
+  "config": {
+      "date_created": "",
+      "input_images_formats" : "['.png', '.PNG', '.jpg', '.JPG', '.jpeg', '.JPEG']",
+      "path_coils_folder" :  "c:/test",
+      "output_folder_suffix" :  "_analyzed",
+      "scan_timer_delay" :  10,
+      "path_to_labels" :  "C:\\code\\DA\\Defect_analyzer_back\\resources\\defaults\\model\\labelmap.pbtxt",
+      "path_to_labels_json":"C:\\code\\DA\\Defect_analyzer_back\\resources\\defaults\\model\\labelmap_dict",
+      "path_to_frozen_graph" : "C:\\code\\DA\\Defect_analyzer_back\\resources\\defaults\\model\\frozen_inference_graph.pb",
+      "path_to_current_coil_register_folder" : "C:/code/DA/Defect_analyzer_back/project_data/register/current_register",
+      "path_to_current_coil_register_json" : "C:/code/DA/Defect_analyzer_back/project_data/register/current_register/coil_register.json",
+      "path_to_output_folders": "C:/code/DA/Defect_analyzer_back/project_data",
+      "path_to_current_config_folder" :  "C:/code/DA/Defect_analyzer_back/project_data/configs",
+      "path_to_current_config_json" :    "C:/code/DA/Defect_analyzer_back/project_data/config/current_config/config.json",
+      "path_to_previous_config_folder" : "C:/code/DA/Defect_analyzer_back/project_data/config/previous_config",
+      "path_to_previous_config_file": "C:/code/DA/Defect_analyzer_back/project_data/config/current_config/config.json",
+      "path_to_default_config_folder" : "C:/code/DA/Defect_analyzer_back/resources/defaults",
+      "path_to_default_config_json":    "C:/code/DA/Defect_analyzer_back/resources/defaults/configs.json",
+      "post_per_page": 10,
+      "const_px_cm" : 0.07998059,
+      "starting_date" : "2020/10/14",
+      "starting_time": "00:00:00"
+    },
+    "thresholds": {
+        "col":10
+    },
+    "emails": "fblanc92@gmail.com"
+}

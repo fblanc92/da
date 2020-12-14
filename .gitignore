@@ -1,0 +1,6 @@
+project_dependencies/
+Defect_analyzer_front/defect_app/site.db
+*__pycache__/
+*.idea/*
+Defect_analyzer_back/project_data/
+venv/

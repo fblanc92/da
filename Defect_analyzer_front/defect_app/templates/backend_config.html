@@ -1,0 +1,27 @@
+{% extends "layout.html" %}
+{% block content %}
+  <h1 class="mb-3">Configurations</h1>
+
+  {% for config in configs %}
+    <article class="media content-section">
+        <div class="media-body">
+          <div class="article-metadata">
+            <small> fecha titulo </small>
+            <small>descripcion</small>
+          </div>
+
+          <table class="table table table-sm table-borderless table-hover ">
+            <tbody>
+              {% for config_key in config %}
+                <tr font-size="8">
+                  <td width=200px>{{ config_key }}</td><td>{{ config[config_key] }}</td>
+                </tr>
+              {% endfor %}
+            </tbody>
+          </table>
+          </div>
+      </article>
+  {% endfor %}
+
+
+{% endblock content %}

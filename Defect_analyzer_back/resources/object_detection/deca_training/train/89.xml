@@ -1,0 +1,26 @@
+<annotation verified="yes">
+	<folder>OXL</folder>
+	<filename>89.bmp</filename>
+	<path>C:\Users\fblanc.TERNIUM\Desktop\DECA\IMAGENES\OXL\89.bmp</path>
+	<source>
+		<database>Unknown</database>
+	</source>
+	<size>
+		<width>240</width>
+		<height>406</height>
+		<depth>1</depth>
+	</size>
+	<segmented>0</segmented>
+	<object>
+		<name>oxl</name>
+		<pose>Unspecified</pose>
+		<truncated>0</truncated>
+		<difficult>0</difficult>
+		<bndbox>
+			<xmin>35</xmin>
+			<ymin>10</ymin>
+			<xmax>205</xmax>
+			<ymax>396</ymax>
+		</bndbox>
+	</object>
+</annotation>

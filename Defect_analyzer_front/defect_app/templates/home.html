@@ -1,0 +1,98 @@
+{% extends "layout.html" %}
+{% block content %}
+
+
+<!--<!DOCTYPE html>-->
+<!--<html lang="en">-->
+<!--  <head>-->
+<!--    <link href="static/css/bootstrap.min.css" rel="stylesheet"> &lt;!&ndash;falta&ndash;&gt;-->
+<!--  </head>-->
+<!--  <body>-->
+
+<form method="POST">
+    {{ form.hidden_tag() }}
+    <div class="form-group">
+        <h4>{{ form.coil_to_search_id(placeholder="Search Coil",class="form-control" )}}</h4>
+        </div>
+    <div class="form-group">
+        {{ form.submit(class="btn btn-outline-info") }}
+      </div>
+</form>
+
+
+{% for post in posts.items %}
+      <article class="media content-section shadow-lg p-3 mb-5 bg-white rounded">
+        <img class="rounded-circle article-img" src="{{ url_for('static',filename='profile_pics/' + 'trl_logo.jpg') }}">
+        <div class="media-body">
+          <div class="article-metadata">
+            <small class="text-muted">{{ post.date_posted.strftime('%Y-%m-%d %H:%M:%S') }}</small>
+
+          </div>
+          <h2><a class="article-title" href="{{ url_for('coilposts_blueprint.post',post_id=post.id)}}">{{ post.coil_id }}</a></h2>
+
+            <p class="article-content"><strong>Defects Areas: </strong>{{post.areas}}</p>
+            <p><strong>Original Path:</strong> {{post.path}}</p>
+              <div class="container">
+                <div class="row">
+                  <div class="col-xs-11 col-sm-12 col-md-12 col-lg-10" id="canvas_holder{{loop.index}}">
+<!--                    <canvas id="canvas{{loop.index}}" height="2%" width="5%"></canvas>-->
+                    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.1/jquery.min.js"></script>
+                    <script src="static/js/bootstrap.min.js"></script>
+                    <script src="static/js/chart/Chart.min.js"></script>
+                    <script type="text/javascript">
+
+                    // This is the speed in which the loop occurs
+                    loopSpeed = 5000
+                    // Every loopSpeed milliseconds, get API data (randomized with Python)
+                    // Then draw a bar graph with the data.
+                      $.get( "/data", function( data ) {
+                          drawChart(data.set)
+                        });
+                    function drawChart(set) {
+
+                      var data = {
+                          labels: ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+
+                          datasets: [
+                              {
+                                  label: "Random Months",
+                                  fillColor: "rgba(220,220,220,0.5)",
+                                  strokeColor: "rgba(220,220,220,0.8)",
+                                  highlightFill: "rgba(220,220,220,0.75)",
+                                  highlightStroke: "rgba(220,220,220,1)",
+                                  data: set
+                              }
+                          ]
+                      };
+                      var canvas_name = "canvas{{loop.index}}"
+                      var ctx = document.getElementById(canvas_name).getContext("2d");
+
+                      new Chart(ctx).Bar(data, {
+                          responsive : true
+                      });
+
+                    }
+
+                    </script>
+
+                  </div>
+                </div>
+
+              </div><!-- /.container -->
+            </div>
+          </article>
+
+  {% endfor %}
+
+  {% for page_num in posts.iter_pages(left_edge=1, right_edge=1, left_current=1, right_current=2) %}
+    {% if page_num %}
+      {% if posts.page == page_num %}
+        <a class="btn btn-info mb-4" href="{{ url_for('main.home', page=page_num) }}">{{ page_num }}</a>
+      {% else %}
+        <a class="btn btn-outline-info mb-4" href="{{ url_for('main.home', page=page_num) }}">{{ page_num }}</a>
+      {% endif %}
+    {% else %}
+    ...
+    {% endif %}
+  {% endfor %}
+{% endblock content %}

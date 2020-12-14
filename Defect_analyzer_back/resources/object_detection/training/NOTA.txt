@@ -1,0 +1,10 @@
+xml_to_csv_v3 esta configurado para correrlo al lado de las carpetas train y test 
+IMPORTANTE: dentro del .csv reemplazar .jpg.jpg por .jpg
+
+
+generate_tfrecord.py esta configurado para correr con comando(al lado de las imagenes) :
+
+(para test)python generate_tfrecord.py --csv_input=test_labels.csv  --output_path=test.record
+(para train)python generate_tfrecord.py --csv_input=train_labels.csv  --output_path=train.record
+
+este archivo es el que contiene las categorias asociadas a numeros

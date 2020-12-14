@@ -1,0 +1,24 @@
+<!--
+{% extends "layout.html"%}
+{% block content %}
+{% for post in posts_default %}
+<article class="media content-section">
+  <div class="media-body">
+    <div class="article-metadata">
+      <a class="mr-2" href="#">N° {{ post.bobina }}</a>
+      <small class="text-muted">{{ post.fecha}} - {{ post.hora }}</small>
+    </div>
+    <h2><a class="article-title" href="#">{{post.linea}} - {{ post.imagen }}</a></h2>
+    <p class="article-content">{{ post.nota }}</p>
+  </div>
+</article>
+{% endfor %}
+{% endblock content %}
+-->
+
+
+<!-- <h1>Bobina: </h1><p>{{ post.bobina }}</p>
+    <h2>Linea: </h2><p>{{ post.linea }}</p>
+    <h2>Imagen: </h2><p>{{ post.imagen }}</p>
+    <h2>Notas: </h2><p>{{ post.nota }}</p>
+    <hr> -->
